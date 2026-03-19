@@ -155,7 +155,7 @@ mvnw.cmd spring-boot:run
 
 ## 👨‍💻 Author
 
-**Harsha Undodi**
+**Harshavardhana Undodi**
 
 ---
 
