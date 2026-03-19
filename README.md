@@ -1,4 +1,162 @@
-Food Delivery AppA Spring Boot-based web application designed to manage a food delivery ecosystem, including users, restaurants, food items, and order processing. This project uses Spring Data JPA for persistence and Thymeleaf for the front-end user interface.FeaturesUser Management: Create, view, and delete users.Restaurant Management: Register restaurants and assign specific food items to their menus.Food Item Catalog: Manage a global list of food items with validation for prices.Order System: Place orders by connecting users, restaurants, and food items.Data Validation: Custom exception handling for invalid data types, such as negative prices or improperly formatted location names.Technology StackFramework: Spring Boot 3.5.0Language: Java 23Database: PostgreSQLTemplate Engine: ThymeleafPersistence: Spring Data JPA / HibernateBuild Tool: MavenProject Structurecom.example.fooddeliveryapp.model: Contains JPA entities (User, Restaurant, FoodItem, Orders).com.example.fooddeliveryapp.controller: Handles web requests and navigation for each entity.com.example.fooddeliveryapp.service: Contains business logic and interacts with repositories.com.example.fooddeliveryapp.repository: Interfaces for database abstraction using JpaRepository.src/main/resources/templates: Thymeleaf HTML templates for the UI.PrerequisitesJava 23 installed.PostgreSQL installed and running.A database named app_db created in PostgreSQL.ConfigurationThe application is configured to connect to a PostgreSQL database. Update the src/main/resources/application.properties file with your credentials:Propertiesspring.datasource.url=jdbc:postgresql://localhost:5432/app_db
-spring.datasource.username=shreyas
-spring.datasource.password=abc123
-How to RunClone the repository.Navigate to the project root.Run the application using the Maven Wrapper:On Linux/macOS: ./mvnw spring-boot:runOn Windows: ./mvnw.cmd spring-boot:runAPI Endpoints (UI)Users: /users/Restaurants: /restaurant/Food Items: /fooditem/Orders: /orders/Data Validation LogicPrice: If a food item price is set to $\le 0$, it defaults to $100$.Location: Restaurant locations must start with an uppercase letter; otherwise, the system automatically capitalizes the first letter.
+# 🍔 Food Delivery App
+
+A **Spring Boot-based web application** designed to manage a complete food delivery ecosystem, including users, restaurants, food items, and order processing.
+
+This project uses **Spring Data JPA** for backend persistence and **Thymeleaf** for the frontend UI.
+
+---
+
+## 🚀 Features
+
+### 👤 User Management
+
+* Create, view, and delete users
+
+### 🏪 Restaurant Management
+
+* Register restaurants
+* Assign food items to restaurant menus
+
+### 🍕 Food Item Catalog
+
+* Manage global list of food items
+* Validation for price handling
+
+### 📦 Order System
+
+* Place orders linking:
+
+  * Users
+  * Restaurants
+  * Food items
+
+### ⚠️ Data Validation
+
+* Custom exception handling
+* Prevents:
+
+  * Negative prices
+  * Invalid location formats
+
+---
+
+## 🛠️ Tech Stack
+
+| Category   | Technology                  |
+| ---------- | --------------------------- |
+| Framework  | Spring Boot 3.5.0           |
+| Language   | Java 23                     |
+| Database   | PostgreSQL                  |
+| ORM        | Spring Data JPA / Hibernate |
+| Frontend   | Thymeleaf                   |
+| Build Tool | Maven                       |
+
+---
+
+## 📂 Project Structure
+
+```
+com.example.fooddeliveryapp
+│
+├── model        → JPA Entities (User, Restaurant, FoodItem, Orders)
+├── controller   → Handles HTTP requests
+├── service      → Business logic layer
+├── repository   → JPA Repositories
+│
+└── resources
+    └── templates → Thymeleaf HTML UI
+```
+
+---
+
+## ⚙️ Prerequisites
+
+* Java 23 installed
+* PostgreSQL installed and running
+* Database created:
+
+  ```
+  app_db
+  ```
+
+---
+
+## 🔧 Configuration
+
+Update your `application.properties`:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/app_db
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+```
+
+---
+
+## ▶️ How to Run
+
+### Clone the repository
+
+```
+git clone https://github.com/HarshaUndodi/food-delivery-app.git
+```
+
+### Navigate to project
+
+```
+cd food-delivery-app
+```
+
+### Run the application
+
+#### Windows:
+
+```
+mvnw.cmd spring-boot:run
+```
+
+#### Linux/macOS:
+
+```
+./mvnw spring-boot:run
+```
+
+---
+
+## 🌐 Application Endpoints
+
+| Module      | URL            |
+| ----------- | -------------- |
+| Users       | `/users/`      |
+| Restaurants | `/restaurant/` |
+| Food Items  | `/fooditem/`   |
+| Orders      | `/orders/`     |
+
+---
+
+## 🧠 Validation Logic
+
+* **Price Rule**
+  If price ≤ 0 → defaults to `100`
+
+* **Location Rule**
+  First letter automatically capitalized if invalid
+
+---
+
+## 📌 Future Improvements
+
+* Add authentication & authorization (Spring Security)
+* REST API support (for frontend apps)
+* Payment integration
+* Docker deployment
+
+---
+
+## 👨‍💻 Author
+
+**Harsha Undodi**
+
+---
+
+⭐ If you found this useful, consider giving it a star!
